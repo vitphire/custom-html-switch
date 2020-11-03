@@ -1,0 +1,79 @@
+:root {
+    /*height of the inside square/circle*/
+    --switch-size:26px;
+    /*padding between the switch and the inside square/circle*/
+    --switch-padding:4px;
+    /*the time it takes for the switch to play the animation*/
+    --switch-transition:.4s;
+    /*shadow on the inside of the switch when hovered*/
+    --switch-shadow:0 0 4px #0006;
+    /*color of the switch when unchecked*/
+    --switch-basecolor: #ccc;
+    /*color of the switch when checked*/
+    --switch-checkedcolor: #2196F3;
+    /*color of the inside square/circle*/
+    --switch-slidercolor: white;
+    /*how round the switches with class="round" should be
+    1 = circle, 0 = square*/
+    --switch-roundness: 1;
+}
+
+/*make the switch inline*/
+.switch {
+    display: inline-block;
+}
+
+/*make the switches with class="round" round*/
+.switch.round > .outer, .switch.round > .outer > .inner {
+    border-radius: calc((var(--switch-size)/2 + var(--switch-padding))*var(--switch-roundness));
+}
+
+/*set shadow to show when the switch is hovered*/
+.switch:hover > .outer > .inner{
+    box-shadow: var(--switch-shadow);
+}
+.switch:hover > .outer{
+    box-shadow: inset var(--switch-shadow);
+}
+
+/*settings for the outer part of the switch*/
+.switch > .outer {
+    /*behave consistently with padding*/
+    box-sizing: border-box!important;
+    /*background color for when the switch is off*/
+    background-color: var(--switch-basecolor);
+    /*make it twice as wide (+padding) as the inner part*/
+    width: calc(var(--switch-size)*2 + var(--switch-padding)*2); height: calc(var(--switch-size)+var(--switch-padding)*2);
+    padding: var(--switch-padding);
+    /*set animation*/
+    -webkit-transition: var(--switch-transition);
+    transition: var(--switch-transition);
+}
+.switch > input:checked + .outer{
+    /*background color for when the switch is on*/
+    background-color: var(--switch-checkedcolor);
+}
+
+/*settings for the inner part of the switch*/
+.switch > .outer > .inner {
+    /*set color*/
+    background-color: var(--switch-slidercolor);
+    /*set size*/
+    height: var(--switch-size);
+    width: var(--switch-size);
+    /*ste animation*/
+    -webkit-transition: var(--switch-transition);
+    transition: var(--switch-transition);
+}
+/*move the inner part when the switch is on*/
+.switch > input:checked + .outer >.inner {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+/*make the actual checkbox invisible*/
+.switch > input {
+    width:0;height:0;
+    opacity: 0;float: left;
+}

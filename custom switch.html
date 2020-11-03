@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>custom switch demo</title>
+
+	<!-- importing the custom switches -->
+	<link rel="stylesheet" type="text/css" href="custom switch.css">
+	<script src="custom switch.js"></script>
+	<!-- importing done -->
+
+	<style>
+		.switch {margin: 4px}
+	</style>
+
+</head>
+<body>
+	<!-- center the switches vertically -->
+	<div style="display: flex; align-items: center;"><!--
+		
+		basic round switch -->
+		<label is="custom-switch" class="round"></label><!--
+
+		not round switch that is checked initially
+		--><label is="custom-switch" checked></label><!--
+		
+		bigger switch, half round
+		--><label is="custom-switch" class="round" style="--switch-size: 40px; --switch-roundness: .5;"></label><!--
+		
+		switch with bigger padding around the inner part
+		--><label is="custom-switch" class="round" style="--switch-padding: 10px"></label><!--
+		
+		switch with different colors
+		--><label is="custom-switch" class="round" style="--switch-checkedcolor: limegreen; --switch-basecolor: red; --switch-slidercolor: cyan"></label>
+	</div>
+</body>
+</html>
